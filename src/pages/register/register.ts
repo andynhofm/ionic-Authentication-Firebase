@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController, IonicPage, LoadingController, NavController, NavParams} from 'ionic-angular';
 import { Usuario } from "../../models/user"
 import {AngularFireAuth} from "angularfire2/auth";
 import {Mensagem} from "../../util/mensagem";
 import {SingletonApp} from "../../models/SingletonApp";
 import {HomePage} from "../home/home";
 import {Validacoes} from "../../models/Validacoes";
+import {LoginPage} from "../login/login";
+import {Carregando} from "../../util/carregando";
 
 @IonicPage()
 @Component({
@@ -21,7 +23,8 @@ export class RegisterPage {
               private afAuth: AngularFireAuth,
               private alert: AlertController,
               public singletonApp: SingletonApp,
-              private validacoes: Validacoes) {
+              private validacoes: Validacoes,
+              private loading: LoadingController) {
   }
 
   // ionViewDidLoad() {
@@ -31,6 +34,9 @@ export class RegisterPage {
   async register(user: Usuario) {
     if (!this.validacao()) return
 
+    let carregando = new Carregando(this.loading, "Efetuando registro. Aguarde...");
+    carregando.exibir();
+
     this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password).then(result => {
       this.afAuth.auth.onAuthStateChanged(atualiza => {
         if (atualiza) {
@@ -38,9 +44,11 @@ export class RegisterPage {
         }
 
         this.singletonApp.setUsuarioLogado(user, result)
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(LoginPage)
+        carregando.finalizar()
       });
     }).catch(err => {
+      carregando.finalizar()
       new Mensagem(this.alert, `Não foi possível fazer o registro. Verifique os dados informados. \nTalvez seu email já esteja cadastrado?`).exibir()
     })
   }
