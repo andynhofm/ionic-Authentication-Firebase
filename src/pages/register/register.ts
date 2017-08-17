@@ -4,7 +4,6 @@ import { Usuario } from "../../models/user"
 import {AngularFireAuth} from "angularfire2/auth";
 import {Mensagem} from "../../util/mensagem";
 import {SingletonApp} from "../../models/SingletonApp";
-import {HomePage} from "../home/home";
 import {Validacoes} from "../../models/Validacoes";
 import {LoginPage} from "../login/login";
 import {Carregando} from "../../util/carregando";
