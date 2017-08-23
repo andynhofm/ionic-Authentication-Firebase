@@ -12,4 +12,14 @@ Antes de rodar a aplicação, é necessário alterar o arquivo app<span></span>.
 
 Na guia "Authentication", não esqueça de habilitar o provedor do método de login para "E-mail/senha".
 
+Caso necessário, atualize as versões das dependências:
+
+```
+// Verificar as últimas atualizações
+> npm outdated
+
+// Atualizar
+> npm update
+```
+
 ![Telas](https://raw.githubusercontent.com/andynhofm/ionic-Authentication/master/resources/telas.png)
