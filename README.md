@@ -15,11 +15,15 @@ Na guia "Authentication", não esqueça de habilitar o provedor do método de lo
 Caso necessário, atualize as versões das dependências:
 
 ```
+> npm install -g ionic
+
 // Verificar as últimas atualizações
 > npm outdated
 
 // Atualizar
 > npm update
+
+> npm install node-sass
 ```
 
 ![Telas](https://raw.githubusercontent.com/andynhofm/ionic-Authentication/master/resources/telas.png)
