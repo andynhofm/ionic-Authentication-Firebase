@@ -16,13 +16,12 @@ Caso necessário, atualize as versões das dependências:
 
 ```
 > npm install -g ionic
-
-// Verificar as últimas atualizações
 > npm outdated
 
 // Atualizar
 > npm update
 
+//Caso solicite instalar o sass
 > npm install node-sass
 ```
 
