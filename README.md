@@ -12,14 +12,10 @@ Antes de rodar a aplicação, é necessário alterar o arquivo app<span></span>.
 
 Na guia "Authentication", não esqueça de habilitar o provedor do método de login para "E-mail/senha".
 
-Caso necessário, atualize as versões das dependências:
+Para instalar as dependências do projeto, utilize os comandos abaixo.
 
 ```
-> npm install -g ionic
-> npm outdated
-
-// Atualizar
-> npm update
+> npm install
 
 //Caso solicite instalar o sass
 > npm install node-sass
